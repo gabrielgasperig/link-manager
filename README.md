@@ -86,5 +86,3 @@ python manage.py runserver
 -  Acesse a aplicação pelo navegador (Chrome, Edge ou Vivaldi).
 
 - Você verá um botão "Instalar App" no canto superior direito do cabeçalho.
-
-- Ou instale via navegador: Menu → "Instalar Link Manager" ou "Criar atalho".
