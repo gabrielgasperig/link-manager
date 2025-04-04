@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Adicionar Novo Link{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2><span>Adicionar Novo Link</span></h2>
+
+    <form method="POST" class="mt-4">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="id_title" class="form-label">Título</label>
+            <input type="text" name="title" id="id_title" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="id_url" class="form-label">URL</label>
+            <input type="url" name="url" id="id_url" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="id_category" class="form-label">Categoria</label>
+            <input type="text" name="category" id="id_category" class="form-control" value="{{ form.category.value }}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a href="{% url 'link_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

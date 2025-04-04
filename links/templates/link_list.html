@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Lista de Links{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2><span>Links Cadastrados</span></h2>
+
+        <!-- Formulário de Filtro -->
+        <form method="GET" class="mb-3">
+            <label for="category" class="form-label"><strong>Filtrar por Categoria:</strong></label>
+            <select name="category" id="category" class="form-select" onchange="this.form.submit()">
+                <option value="">Todas</option>
+                {% for cat in categories %}
+                    <option value="{{ cat }}" {% if selected_category == cat %}selected{% endif %}>{{ cat }}</option>
+                {% endfor %}
+            </select>
+        </form>
+
+        <a href="{% url 'add_link' %}" class="btn btn-primary mb-3">Adicionar Novo Link</a>
+        
+        <ul class="list-group">
+            {% for link in links %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <a href="{{ link.url }}" target="_blank" class="text-decoration-none">{{ link.title }}</a>
+                        <span class="badge badge-primary badge-pill">{{ link.category }}</span>
+                    </div>
+                    <span>
+                        <a href="{% url 'edit_link' link.pk %}" class="btn btn-warning btn-sm">✏️ Editar</a>
+                        <a href="{% url 'delete_link' link.pk %}" class="btn btn-danger btn-sm">🗑️ Excluir</a>
+                        <a href="https://api.whatsapp.com/send?text={{ link.url }}" target="_blank" class="btn btn-success btn-sm">📲 WhatsApp</a>
+                        <a href="mailto:?subject=Confira este link!&body={{ link.url }}" class="btn btn-primary btn-sm">📧 E-mail</a>
+                        <button class="btn btn-secondary btn-sm" onclick="copiarLink('{{ link.url }}')">📋 Copiar</button>
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script>
+        function copiarLink(url) {
+            navigator.clipboard.writeText(url).then(() => {
+                alert('Link copiado!');
+            }).catch(err => {
+                console.error('Erro ao copiar:', err);
+            });
+        }
+    </script>
+    
+{% endblock %}
