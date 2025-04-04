@@ -24,20 +24,35 @@ Um aplicativo web desenvolvido com Django para gerenciar links.
 
 ## 🔧 Como Rodar o Projeto Localmente  
 
-### **1️⃣ Clonar o Repositório**  
+### 1️⃣ Obter o Projeto
+
+**Você pode obter o código-fonte de duas formas:**
+
+#### 🔁 Opção 1: Clonando com Git
 ```
 git clone https://github.com/gabrielgasperig/link-manager
 cd link-manager
+```
+#### 📦 Opção 2: Baixando o ZIP
+- Acesse o repositório: https://github.com/gabrielgasperig/link-manager
+
+- Clique no botão verde "Code" e selecione "Download ZIP"
+
+- Extraia o arquivo em seu computador
+
+- Acesse a pasta extraída com seu terminal:
+```
+cd link-manager-main  # ou o nome da pasta descompactada
 ```
 ### 2️⃣ Criar e Ativar um Ambiente Virtual
 ```
 python -m venv venv
 ```
-#### Ativa ambiente no Linux/macOS
+#### 🐧 Ativa ambiente no Linux/macOS
 ```
 source venv/bin/activate
 ```
-#### Ativa ambiente no Windows
+#### 🪟 Ativa ambiente no Windows
 ```
 venv\Scripts\activate  
 ```
@@ -60,5 +75,16 @@ python manage.py runserver
 ```
 ---
 
-**Acesse a aplicação em:**
+## 🌍 Acesse o App Localmente
+
 🔗 http://127.0.0.1:8000/
+
+---
+
+## 🧪 Testando como PWA
+
+-  Acesse a aplicação pelo navegador (Chrome, Edge ou Vivaldi).
+
+- Você verá um botão "Instalar App" no canto superior direito do cabeçalho.
+
+- Ou instale via navegador: Menu → "Instalar Link Manager" ou "Criar atalho".
